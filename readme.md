@@ -1,12 +1,12 @@
 # MindCore
 
-MindCore este o aplicație web cu inteligență artificială, creată
-pentru a ajuta studenții să învețe folosind propriile materiale de curs.
+MindCore is an AI-powered web application designed to help
+students learn using their own course materials.
 
-Utilizatorii pot încărca documente PDF, adresa întrebări despre
-conținutul acestora și exersa prin quiz-uri și flashcard-uri.
+Users can upload PDF documents, ask questions about their
+content, and practice with quizzes and flashcards.
 
-## Echipa Innovators
+## Team Innovators
 
 - Radulescu Cristina Maria
 - Dobrota Iasmina Maria
@@ -14,55 +14,54 @@ conținutul acestora și exersa prin quiz-uri și flashcard-uri.
 - Stoia Vlad Eugen
 - Popescu Marius Valentin
 
-## Funcționalități
+## Features
 
-- Înregistrare și autentificare.
-- Încărcarea materialelor de curs în format PDF.
-- Chat cu un asistent AI pe baza documentelor încărcate.
-- Afișarea surselor relevante, cu numele documentului și pagina.
-- Generarea de quiz-uri și flashcard-uri pentru recapitulare.
-- Salvarea și consultarea istoricului conversațiilor.
+- User registration and authentication.
+- Uploading course materials in PDF format.
+- Chatting with an AI assistant based on uploaded documents.
+- Displaying relevant sources, including document names and page numbers.
+- Generating quizzes and flashcards for revision.
+- Saving and viewing conversation history.
 
-## Cum funcționează
+## How It Works
 
-Aplicația extrage textul din documentele PDF și îl împarte în
-fragmente. Acestea sunt transformate în reprezentări vectoriale
-și stocate în Qdrant.
+The application extracts text from PDF documents and splits it
+into chunks. These chunks are converted into vector embeddings
+and stored in Qdrant.
 
-La primirea unei întrebări, sunt căutate fragmentele relevante,
-care sunt apoi trimise modelului AI prin Groq pentru formularea
-răspunsului. Această abordare se numește RAG
-(Retrieval-Augmented Generation).
+When a question is submitted, relevant chunks are retrieved
+and sent to the AI model through Groq to generate an answer.
+This approach is called RAG (Retrieval-Augmented Generation).
 
-## Tehnologii
+## Technologies
 
-- **Frontend:** React, Vite, CSS și Framer Motion.
-- **Backend:** Python și FastAPI.
-- **Inteligență artificială:** Groq și Sentence Transformers.
-- **Stocarea datelor:** PostgreSQL și Qdrant.
-- **Prelucrarea PDF-urilor:** PyMuPDF.
-- **Autentificare:** JWT.
-- **Containere:** Docker și Docker Compose.
+- **Frontend:** React, Vite, CSS, and Framer Motion.
+- **Backend:** Python and FastAPI.
+- **Artificial intelligence:** Groq and Sentence Transformers.
+- **Data storage:** PostgreSQL and Qdrant.
+- **PDF processing:** PyMuPDF.
+- **Authentication:** JWT.
+- **Containers:** Docker and Docker Compose.
 
-## Structura proiectului
+## Project Structure
 
-- `frontend/` — interfața aplicației.
-- `backend/` — API-ul, autentificarea și procesarea documentelor.
-- `docker-compose.yml` — configurarea serviciilor Docker.
+- `frontend/` — the application interface.
+- `backend/` — the API, authentication, and document processing.
+- `docker-compose.yml` — Docker service configuration.
 
-## Rulare
+## Getting Started
 
-1. Descarcă sau clonează repository-ul.
-2. Copiază `backend/.env.example` în `backend/.env` și completează
-   conexiunea PostgreSQL, configurarea Qdrant și cheia API Groq.
-3. Pregătește schema PostgreSQL `MindCore` și tabelele necesare.
-   Arhiva nu include un script SQL de inițializare.
-4. Instalează dependențele backend din `backend/requirements.txt`
-   și pornește API-ul din directorul `backend`:
+1. Download or clone the repository.
+2. Copy `backend/.env.example` to `backend/.env` and configure
+   the PostgreSQL connection, Qdrant settings, and Groq API key.
+3. Set up the `MindCore` PostgreSQL schema and the required tables.
+   The project archive does not include an SQL initialization script.
+4. Install the backend dependencies from `backend/requirements.txt`
+   and start the API from the `backend` directory:
    `uvicorn app.main:app --reload`
-5. Din directorul `frontend`, rulează `npm install`,
-   apoi `npm run dev`.
-6. Accesează aplicația la `http://localhost:5173`.
+5. From the `frontend` directory, run `npm install`,
+   followed by `npm run dev`.
+6. Open the application at `http://localhost:5173`.
 
-Backend-ul este disponibil la `http://localhost:8000`,
-iar documentația API la `http://localhost:8000/docs`.
+The backend is available at `http://localhost:8000`,
+and the API documentation at `http://localhost:8000/docs`.
